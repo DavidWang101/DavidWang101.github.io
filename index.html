@@ -194,10 +194,19 @@ li {
 <body>
 
 <!-- Always on top: Position Fixed-->
-<header>
-      <h1>Statistics and Clinical Trials </h1>
-      <h2>by Anthony Y. Wang, Ph.D. </h2>
-</header>
+
+	
+<div id="myheader">
+
+</div>
+
+<script>
+$(function(){
+  $("#myheader").load("myheader.html");
+});	
+	
+	
+	
 <!-- Fixed size after header-->
 <div class="content">
     <!-- Always on top. Fixed position, fixed width, relative to content width-->
