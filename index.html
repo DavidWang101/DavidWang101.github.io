@@ -16,13 +16,6 @@
 	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" /> </script>
 	<script type="text/javascript" src="script.js"/>
-	<script>
-$(document).ready(function(){ 
-  $.get("sidemenu.html", function(data) {
-    $("#sidemenu").html(data);
-  });
-}); 
-	</script>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
@@ -194,18 +187,18 @@ li {
 <body>
 
 <!-- Always on top: Position Fixed-->
-
+<header>
 	
 <div id="myheader">
 
 </div>
-
+	
 <script>
 $(function(){
   $("#myheader").load("myheader.html");
 });	
 	
-	
+</header>	
 	
 <!-- Fixed size after header-->
 <div class="content">
