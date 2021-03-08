@@ -217,21 +217,20 @@ $(function(){
     <!-- Scrollable div with main content -->
     <div id="scrollable2">
   <h2> Basic Statistical Models </h2> 
-	    <table border=no> <tr><tb> <a href="LM.html"> Linear Models </a>  </tb>
-<tb> <a href="LMM.html"> Linear Mixed Models </a>  </tb>
-		    <tb> <a href="GLM.html"> Generalized Linear Models </a> </tb>
+	    <table border=hidden> <tr><td> <a href="LM.html"> Linear Models </a>  </td>
+<td> <a href="LMM.html"> Linear Mixed Models </a>  </td>
+		    <td> <a href="GLM.html"> Generalized Linear Models </a> </td>
 		    </tr>
-<tr><tb>		    
-	<a href="GLMM.html"> Generalized Linear Mixed Models </a></tb>
-	<tb> <a href="SurvivalM.html"> Survival Models </a></tb>
-	<tb><a href="NLMM.html"> Non-linear Mixed Model </a></tb>
+<tr><td>		    
+	<a href="GLMM.html"> Generalized Linear Mixed Models </a></td>
+	<td> <a href="SurvivalM.html"> Survival Models </a></td>
+	<td><a href="NLMM.html"> Non-linear Mixed Model </a></td>
 		    </tr><table>
 <hr>
 
 <p> <b> Linear Models: </b>
-<p> Linear models (LM) are used to fit independent normal distributed response data (continuous data). It includes ANOVA, ANCOVA, simple linear regression,
-    multiple linear regression, polynomial regression, etc. It models the mean in a linear relationship with the characteristics (covariates) of the individual subjects.
-
+<p> Linear models (LM) are used to fit independent normal distributed response data (continuous data). It includes ANOVA models, ANCOVA models, simple linear regression,
+    multiple linear regression, polynomial regression, etc. It models the mean with the characteristics (covariates, independent variables) of the individual subjects.
 
 <p> <b> Linear Mixed Models: </b>
 <p> Linear Mixed Models (LMM) are used to fit correlated normal distributed response data. It models the mean in a linear relationship with the characteristics (covariates) 
@@ -244,7 +243,7 @@ $(function(){
     It models the mean through a link function of the mean in a linear relationship with the characteristics (covariates) of the individual subjects.
      It is a generalization of the linear models (LM). It extends the normal distributed data to non-normal distributed data and continuous data to binary data, categorical data, and count data.
     
-<p> <b> Genralized Linear Mixed Models: </b>
+<p> <b> Generalized Linear Mixed Models: </b>
 <p> Generalized Linear Mixed Models (GLMM) are used to fit correlated, exponential family (normal and non-normal) distributed response data. It models the mean via a link function of the mean 
      in a linear relationship with the characteristics (covariates) 
     of individual subjects. It also models the variance-covariance matrix. The models can include fixed effects and random effects. GLMM is a generalization of LM and GLM. 
