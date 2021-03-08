@@ -185,10 +185,17 @@ li {
 <body>
 
 <!-- Always on top: Position Fixed-->
-<header>
+<header id="myheader">
       <h1>Statistics and Clinical Trials </h1>
       <h2>by Anthony Y. Wang, Ph.D. </h2>
-</header>	
+</header>
+<script>
+$(function(){
+  $("#myheader").load("myheader.html");
+});
+</script>
+	   
+	
 	
 <!-- Fixed size after header-->
 <div class="content">
