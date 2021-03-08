@@ -14,15 +14,6 @@
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" /> </script>
-	<script type="text/javascript" src="script.js"/>
-	<script>
-$(document).ready(function(){ 
-  $.get("sidemenu.html", function(data) {
-    $("#sidemenu").html(data);
-  });
-}); 
-	</script>
 <style>
 * {
   box-sizing: border-box;
@@ -192,7 +183,9 @@ li {
 <div class="content">
     <!-- Always on top. Fixed position, fixed width, relative to content width-->
     <div  class="sidebar1">
-	    <div id="sidemenu"> </div>
+	    <div>
+	    <?php include="sidemenu.html" ?>
+	    </div>
       
     </div>
     <!-- Scrollable div with main content -->
