@@ -238,13 +238,67 @@ $(function(){
  are considered to have potential effects on the mean of the response:
 \[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik}\]
  or 
-\[ \y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \epsilon_i, \epsilon_i \sim N(0, \sigma^2) \]
-where $\epsilon_i$ is the random variation in y that is not explained by the covariates in the model. The random
+\[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \epsilon_i=x_i \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
+where $x_i= (1, x_{i1}, ..., x_{ik})$ is the observation of the covariates from subject $i$,
+the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_k)^T$ is the regression coefficients, and 
+$\epsilon_i$ is the random variation in y that is not explained by the covariates in the model. The random
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
 The parameters $\beta_0, \beta_1, ..., \beta_k $ are called regression coefficients.
-\[ y=X \beta + \epsilon,  \epsilon \sim N(0, \sigma^2I_n) \]
-    
+
+<p> Let $ \mathbf{y} = (y_1,y_2, \cdots, y_n)^T $ be the observation vector. Then the linear model can be rewritten as
+\[ \mathbf{y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
+where $\mathbf{X}=(x_1^', x_2^', ..., x_n^')' $ is the observed covariate matrix. 
+
+<p> The simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are all linear models.
+
+The main purpose of fitting a linear model to the observed data can be 
+<ul>
+<li> to investigate the relationship of the response variable and the covariates, and the importance of the covariates on the response 
+<li> to predict the response for some different values of the covariates
+<li> to find an optimum response
+</ul>
+
+No matter what purpose is, the first step is to estimate the parameters $\mathbf{\beta}$ and the common standand deviation $\sigma$.
+
+<p>Least Square Estimation (LSE) of the parameters:
+
+/[ \hat{\mathbf{\beta}}=\mathbf{X}' (X'X)^{-1} X' Y /]
+which is a Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). 
+
+
+which is the best (minimum variance) quadratic unbiased estimator of . Note that unbiased estimators only require 
+with normal assumptions, the maximum likelihood estimtors (MLE) can be derived.  The MLE of is the same as the LSE.
+
+
+which is a biased estimator.
+
+Inference can be made based on the above distributions through t-test or F-test for any contrast (linear combination of the .
+
+ 
+
+<p> Some notes on linear models:
+
+<ul>
+ <li>       By “linear” it means “linear in parameter”. It does not mean “linear in covariate”. So polynomial regression is a special case.
+
+ <li>       <em> Normal distributed </em> means the response variable is a continuous variable.
+
+ <li>       Some transformation of the response variable may be needed for being normally distributed.
+
+ <li>       Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept.
+
+ <li>       Factors should be coded before performing analyses. There are different ways in the coding systems.
+            Check Coding Systems for Categorical Variables in Regression Analysis (ucla.edu).
+            Many software packages do the coding but care should be taken when interpretation of the regression parameters.
+            Different coding will result in different interpretations. 
+           In SAS, the categorical variables are declared by the CLASS statement with several options for coding.
+
+ <li>     It is a good practice to perform some standardization of the covariates.
+
+ <li>       Check whether there are collinearity between the covariates
+
+</ul>
     </div>
 
     <!-- Always on top. Fixed position, fixed width, relative to content width -->
