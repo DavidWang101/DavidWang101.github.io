@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Anthony's page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" /> </script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+ 
+    a { text-decoration: none; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+/* Style the header */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 80 px !important; 
+  background-color: DodgerBlue;
+ /* padding: 5px 0px 5px 0px; */
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  opacity: .8;
+}
+
+
+.content {
+    position:relative;
+    height: 100%;
+    width:100%; /* Sizing - any length */
+    padding:80px 0px 30px 0px; /* Header height and footer height */
+    margin:0 auto 0 auto; /* Center content */
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.sidebar1, .sidebar2 {
+    background-color: #ccc;
+    top:80px;
+    bottom:30px;
+    width: 20%;
+    position:absolute;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.sidebar1 {
+    left:0px;
+}
+
+.sidebar2 {
+    right: 0px;
+}
+
+#scrollable2 {
+    background-color: #f1f1f1;
+    height: 100%;
+    width: 80%;
+    min-width: 300px; 
+    margin-left: 20%;
+    margin-right: 0px; 
+    padding: 0px 20px 20px 20px;
+
+    overflow:auto;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box; 
+}
+
+footer {
+    width: 100%;
+    background-color: DodgerBlue;
+    position: fixed; 
+    bottom: 0px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    padding: 5px 20px 5px 20px;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 100%;
+  height: 100%;  /* only for demonstration, should be removed */
+  background-color: #ccc;
+  padding: 5px 5px 5px 10px;
+  /*position: fixed; */
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0px;
+}
+li {
+   padding: 5px 0px 2px 0px;
+}
+
+/*hoverable dropdown menu */
+.dropbtn {
+  background-color: #ccc /*#4CAF50*/;
+  color: blue;
+  padding: 2px 0px 2px 0px; /* indent space */
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 600px;
+  padding: 5px 5px 5px 5px
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 2px 0px 0px 10px;
+  text-decoration: none;
+  background-color: white;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #f1f1f1; /* #3e8e41;*/}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Always on top: Position Fixed-->
+<header id="myheader">
+      <h1>Statistics and Clinical Trials </h1>
+      <h2>by Anthony Y. Wang, Ph.D. </h2>
+</header>
+<script>
+$(function(){
+  $("#myheader").load("myheader.html");
+});
+</script>
+	   
+	
+	
+<!-- Fixed size after header-->
+<div class="content">
+    <!-- Always on top. Fixed position, fixed width, relative to content width-->
+    <div  class="sidebar1">
+	    <!--Navigation bar-->
+<div id="sidemenu">
+
+</div>
+<script>
+$(function(){
+  $("#sidemenu").load("sidemenu.html");
+});
+</script>
+	    
+<!--end of Navigation bar-->
+      
+    </div>
+    <!-- Scrollable div with main content -->
+    <div id="scrollable2">
+  <h2> Basic Statistical Models </h2> 
+	    <table border=0 padding=20px> <tr><td> <a href="LM.html"> Linear Models </a>  </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="LMM.html"> Linear Mixed Models </a>  </td>
+		    <td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="GLM.html"> Generalized Linear Models </a> </td>
+		    <td></td>
+		    </tr>
+<tr><td>		    
+	<a href="GLMM.html"> Generalized Linear Mixed Models </a></td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp; <a href="SurvivalM.html"> Survival Models </a></td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp;<a href="NLMM.html"> Non-linear Mixed Model </a></td>
+	<td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="Bayesian.html"> Bayesian Models </a> </td>
+		    </tr><table>
+<hr>
+
+<h2>Linear Models (LM)</h2>
+
+<p> Let $y_1, y_2, ..., y_n$ be the responses from $n$ subjects, each response follows independently a normal distribution:
+\[ y_i \sim N(\mu_i, \sigma^2), i=1, 2, \cdots, n \]
+<p> A linear model is to relate the mean $\mu_i$ with some characterics of each subject, $x_{i1}, x_{i2}, \cdots, x_{ik}$, called predictors, covariates, independent variables, etc. These covariates 
+ are considered to have potential effects on the mean of the response:
+/[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik}\]
+ or 
+/[ \y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \epsilon_i, \epsilon_i \sim N(0, \sigma^2) \]
+where $\epsilon_i$ is the random variation in y that is not explained by the covariates in the model. The random
+variation may be due to other variables that affect y but are not known or
+not observed, or simply measurement errors.
+The parameters $\beta_0, \beta_1, ..., \beta_k $ are called regression coefficients.
+\[ y=X \beta + \epsilon,  \epsilon \sim N(0, \sigma^2I_n) \]
+    
+    </div>
+
+    <!-- Always on top. Fixed position, fixed width, relative to content width -->
+
+</div>
+<!-- Always at the end of the page -->
+<footer>
+     <p> <a href="Mailto:anthony.y.wang.math@gmail.com"> Contact me </a> </p>
+</footer>
+
+
+
+</body>
+</html>
