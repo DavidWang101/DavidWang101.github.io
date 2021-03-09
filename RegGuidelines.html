@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Anthony's page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+  </script>
 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" /> </script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+ 
+    a { text-decoration: none; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+/* Style the header */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 80 px !important; 
+  background-color: DodgerBlue;
+ /* padding: 5px 0px 5px 0px; */
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  opacity: .8;
+}
+
+
+.content {
+    position:relative;
+    height: 100%;
+    width:100%; /* Sizing - any length */
+    padding:80px 0px 30px 0px; /* Header height and footer height */
+    margin:0 auto 0 auto; /* Center content */
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.sidebar1, .sidebar2 {
+    background-color: #ccc;
+    top:80px;
+    bottom:30px;
+    width: 20%;
+    position:absolute;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.sidebar1 {
+    left:0px;
+}
+
+.sidebar2 {
+    right: 0px;
+}
+
+#scrollable2 {
+    background-color: #f1f1f1;
+    height: 100%;
+    width: 80%;
+    min-width: 300px; 
+    margin-left: 20%;
+    margin-right: 0px; 
+    padding: 0px 20px 20px 20px;
+
+    overflow:auto;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box; 
+}
+
+footer {
+    width: 100%;
+    background-color: DodgerBlue;
+    position: fixed; 
+    bottom: 0px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    padding: 5px 20px 5px 20px;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 100%;
+  height: 100%;  /* only for demonstration, should be removed */
+  background-color: #ccc;
+  padding: 5px 5px 5px 10px;
+  /*position: fixed; */
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0px;
+}
+li {
+   padding: 5px 0px 2px 0px;
+}
+
+/*hoverable dropdown menu */
+.dropbtn {
+  background-color: #ccc /*#4CAF50*/;
+  color: blue;
+  padding: 2px 0px 2px 0px; /* indent space */
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 600px;
+  padding: 5px 5px 5px 5px
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 2px 0px 0px 10px;
+  text-decoration: none;
+  background-color: white;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #f1f1f1; /* #3e8e41;*/}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Always on top: Position Fixed-->
+<header id="myheader">
+      <h1>Statistics and Clinical Trials </h1>
+      <h2>by Anthony Y. Wang, Ph.D. </h2>
+</header>
+<script>
+$(function(){
+  $("#myheader").load("myheader.html");
+});
+</script>
+	   
+	
+	
+<!-- Fixed size after header-->
+<div class="content">
+    <!-- Always on top. Fixed position, fixed width, relative to content width-->
+    <div  class="sidebar1">
+	    <!--Navigation bar-->
+<div id="sidemenu">
+
+</div>
+<script>
+$(function(){
+  $("#sidemenu").load("sidemenu.html");
+});
+</script>
+	    
+<!--end of Navigation bar-->
+      
+    </div>
+    <!-- Scrollable div with main content -->
+    <div id="scrollable2">
+  <h2> About </h2>
+ <hr>
+    <p> Welcome to my personal page. My plan is to introduce ... </p>
+    <p> I am ...$x_1=\Sigma_{i=1}^n Y_{ij} \alpha_i $
+
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the  element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the  element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the  element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the  element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the  element contains the style that changes how anchor links are decorated.</p>
+    <p>To make all of the links on your web page not have underlines, configure the text-decoration style of the a (anchor) element. For instance, you can add the following CSS code between the  tags of your web page's HTML code. Here, the style> element contains the style that changes how anchor links are decorated.</p>
+
+    </div>
+
+    <!-- Always on top. Fixed position, fixed width, relative to content width -->
+
+</div>
+<!-- Always at the end of the page -->
+<footer>
+     <p> <a href="Mailto:anthony.y.wang.math@gmail.com"> Contact me </a> </p>
+</footer>
+
+
+
+</body>
+</html>
