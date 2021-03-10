@@ -229,7 +229,8 @@ $(function(){
 	<td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="Bayesian.html"> Bayesian Models </a> </td>
 		    </tr><table>
 <hr>
-<p> Some basic type of statistical models are described  below. For further details, please click the link above.
+<p> Some basic type of statistical models are described  below. For more details of each type of models, please click the link above. 
+	All model introduced here are functional models that model the parameters of interest in the distributions. 
 <p> <b> Linear Models: </b>
 <p> Linear models (LM) are used to fit independent normal distributed response data (continuous data). It includes ANOVA models, ANCOVA models, simple linear regression,
     multiple linear regression, polynomial regression, etc. It models the mean with the characteristics (covariates, independent variables) of the individual subjects.
@@ -248,19 +249,17 @@ $(function(){
 <p> <b> Generalized Linear Mixed Models: </b>
 <p> Generalized Linear Mixed Models (GLMM) are used to fit correlated, exponential family (normal and non-normal) distributed response data. It models the mean via a link function of the mean 
      in a relationship with the characteristics (covariates) 
-    of individual subjects. It also models the variance-covariance matrix. The models can include fixed effects and random effects. GLMM is a generalization of LM and GLM. 
+    of individual subjects. It can also model the structure of the variance-covariance matrix. The models can include fixed effects and random effects. GLMM is a generalization of LM and GLM. 
     It relaxes the independence assumption in the GLM and the normal assumption in LMM.  
-
-<p style="color:darkgreen;" background="color: #d5f4e6">    Note that the word "linear" means linear in model parameters! It include linear with transformed covariates (though it is frequently the case).
-</p>
 
 <p> <b> Survival Models:</b> <br>
 <p> Survival models are used to fit censored data. If the measurement is time to event, the data often contain censored data. The most common statistical methods 
      used for such type of data are parametric regresson models, semi-parametric models (Cox proportional hazard models), and non-parametric models.
 
-<p> <b> Non-Linear Mixed Models: </b> <br>
-<p> Sometimes the linear models described above may not fit the data well, in that case, a non-linear model may be needed. Non-linear models can be fitted to 
-    independent data (Non-linear models) or correlated data (Non-Linear Mixed Models). The distribution can be normal or non-normal.
+<p> <b> Non-Linear Model and Non-linear Mixed Models: </b> <br>
+<p> Sometimes the linear models described above may not fit the data well, in that case, a non-linear model or a non-linear mixed model may be needed.
+	Non-linear models can be fitted to 
+    independent data and Non-Linear Mixed Models can be fitted to correlated data. The distribution can be normal or non-normal.
     
     </div>
 
