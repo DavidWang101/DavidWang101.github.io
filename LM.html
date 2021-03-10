@@ -245,8 +245,8 @@ $\epsilon_i$ is the random variation in $y$ that is not explained by the covaria
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
 
-<p> Let $ \mathbf{y} = (y_1,y_2, \cdots, y_n)' $ be the vector of observed response data. Then the linear model can be rewritten as
-\[ \mathbf{y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
+<p> Let $ \mathbf{Y} = (y_1,y_2, \cdots, y_n)' $ be the vector of observed response data. Then the linear model can be rewritten as
+\[ \mathbf{Y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
 where $\mathbf{X}=(x_1, x_2, ..., x_n)' $ is the observed covariate matrix. 
 
 <p> Simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are linear models.
@@ -285,7 +285,7 @@ Once the estimates are obtained, inferences about the model, the coefficients, o
 
 <ul>
 <li> A linear model has three important assumptions: normality, independency, and common standard deviation. Before making any inferences on the parameters,
-these assumptions should be checked. If the assumptions are violated, some changes are needed. For example, if the distribution is skewed, some transformation may be applied first.
+these assumptions should be checked. If the assumptions are violated, some transformation of the data may be needed or alternate models should be fitted. For example, if the distribution is skewed, some transformation may be applied first.
  <li>       By “linear” it means “linear in parameters”. Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept.
 	 The relation to the covariates can be nonlinear such as $x^2$ or $e^{x^2}$ or $\sin (x)$.
            So polynomial regression is a special case of linear models.
