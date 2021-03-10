@@ -271,7 +271,7 @@ which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). $\sig
 
 $s^2$ is the best (minimum variance) quadratic unbiased estimator of $\simga^2$. Note that unbiased estimators only require $E(\mathbf{Y})=\mathbf{X\beta}$ and
 $Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $.
-With additions assumption of normal distributions, the maximum likelihood estimtors (MLE) can be derived. The MLE of $\mathbf{\beta} is the same as the LSE, and the MLE of $\sigma^2$ is
+With additions assumption of normal distributions, the maximum likelihood estimtors (MLE) can be derived. The MLE of $\mathbf{\beta}$ is the same as the LSE, and the MLE of $\sigma^2$ is
 \[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X^t \hat{\beta}})^T(\mathbf{Y} - \mathbf{X^t \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
 
 which is a biased estimator of $\sigma^2$.
@@ -285,7 +285,8 @@ Once the estimates are obtained, inferences about the model, the coefficients, o
 <ul>
 <li> A linear model has three important assumptions: normality, independency, and common standard deviation. Before making any inferences on the parameters,
 these assumptions should be checked. If the assumptions are violated, some changes are needed. For example, if the distribution is skewed, some transformation may be applied first.
- <li>       By “linear” it means “linear in parameters”. Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept. The relation to the covariates can be nonlinear such as $x^2$ or $e^x^2$ or $\sin (x)$.
+ <li>       By “linear” it means “linear in parameters”. Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept.
+	 The relation to the covariates can be nonlinear such as $x^2$ or $e^{x^2}$ or $\sin (x)$.
            So polynomial regression is a special case of linear models.
 
  <li>       <em> Normal distributed </em> means the response variable is a continuous variable. Some transformation of the response variable may be needed for being normally distributed.
