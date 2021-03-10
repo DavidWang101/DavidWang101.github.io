@@ -234,13 +234,13 @@ $(function(){
 <p> Let $y_1, y_2, ..., y_n$ be the responses from $n$ subjects, each response follows a normal distribution independently with a common standard deviation
  $\sigma$ and possible different means:
 \[ y_i \sim N(\mu_i, \sigma^2), i=1, 2, \cdots, n \]
-<p> Different characterics of each subject, measured as $x_{i1}, x_{i2}, \cdots, x_{ik}$, may have effects on the mean. 
+<p> Different characterics of each subject, measured as $x_{i1}, x_{i2}, \cdots, x_{ip}$, may have effects on the mean. 
 A linear model is to relate the mean $\mu_i$ with these characteristics (called predictors, covariates, independent variables, etc): 
-\[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik}\]
+\[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ip}\]
  or 
-\[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \epsilon_i=x_i \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
-where $x_i= (1, x_{i1}, ..., x_{ik})$ is the observation of the covariates from subject $i$,
-the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_k)^'$ is a vector of the regression coefficients, and 
+\[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i=x_i \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
+where $x_i= (1, x_{i1}, ..., x_{ip})$ is the observation of the covariates from subject $i$,
+the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_p)^'$ is a vector of the regression coefficients, and 
 $\epsilon_i$ is the random variation in $y$ that is not explained by the covariates in the model. The random
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
