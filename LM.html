@@ -240,14 +240,14 @@ A linear model is to relate the mean $\mu_i$ with these characteristics (called 
  or 
 \[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \epsilon_i=x_i \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
 where $x_i= (1, x_{i1}, ..., x_{ik})$ is the observation of the covariates from subject $i$,
-the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_k)^T$ is a vector of the regression coefficients, and 
+the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_k)^'$ is a vector of the regression coefficients, and 
 $\epsilon_i$ is the random variation in $y$ that is not explained by the covariates in the model. The random
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
 
-<p> Let $ \mathbf{y} = (y_1,y_2, \cdots, y_n)^T $ be the vector of observed response data. Then the linear model can be rewritten as
+<p> Let $ \mathbf{y} = (y_1,y_2, \cdots, y_n)^' $ be the vector of observed response data. Then the linear model can be rewritten as
 \[ \mathbf{y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
-where $\mathbf{X}=(x_1^T, x_2^T, ..., x_n^T)^T $ is the observed covariate matrix. 
+where $\mathbf{X}=(x_1^', x_2^', ..., x_n^')^' $ is the observed covariate matrix. 
 
 <p> Simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are linear models.
 
@@ -262,17 +262,18 @@ The first step is to estimate the parameters $\mathbf{\beta}$ and the common sta
 
 <p>The Least Square Estimation (LSE) of the parameters is
 
-\[ \hat{\mathbf{\beta}}=\mathbf{X} (X'X)^{-1} X' Y \sim N(\mathbf{\beta}, \sigma^2 \mathbf{(X^T X)}^{-1}), \]
+\[ \hat{\mathbf{\beta}}=\mathbf{ (X'X)^{-1} X' Y} \sim N(\mathbf{\beta}, \sigma^2 \mathbf{(X^' X)}^{-1}), \]
 which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). $\sigma^2$ can be estimated using
 
-\[ s^2 = \frac{(\mathbf{Y} - \mathbf{X^t \hat{\beta}})^T(\mathbf{Y} - \mathbf{X^t \hat{\beta}})}{n-p-1},  \frac{(n-p-1)s^2}{\sigma^2} \sim \chi^2 (n-p-1),
+\[ s^2 = \frac{(\mathbf{Y} - \mathbf{X \hat{\beta}})^'(\mathbf{Y} - \mathbf{X \hat{\beta}})}{n-p-1},  \frac{(n-p-1)s^2}{\sigma^2} \sim \chi^2 (n-p-1),
 \mathbf{\hat{\beta}} and s^2 are independent,
 \]
 
 $s^2$ is the best (minimum variance) quadratic unbiased estimator of $\sigma^2$. Note that unbiased estimators only require $E(\mathbf{Y})=\mathbf{X\beta}$ and
 $Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $.
-With additions assumption of normal distributions, the maximum likelihood estimtors (MLE) can be derived. The MLE of $\mathbf{\beta}$ is the same as the LSE, and the MLE of $\sigma^2$ is
-\[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X^t \hat{\beta}})^T(\mathbf{Y} - \mathbf{X^t \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
+With additions assumption of normal distributions, the maximum likelihood estimtors (MLE) can be derived. 
+The MLE of $\mathbf{\beta}$ is the same as the LSE, and the MLE of $\sigma^2$ is
+\[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X \hat{\beta}})^'(\mathbf{Y} - \mathbf{X \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
 
 which is a biased estimator of $\sigma^2$.
 
@@ -301,13 +302,13 @@ these assumptions should be checked. If the assumptions are violated, some chang
 
  <li>    Model diagnostics: <br>
      <ul>
-         <li> (a) Check whether there are collinearity between the covariates. If collinearity exists, LSE or MLE are unstable. 
+         <li> Check whether there are collinearity between the covariates. If collinearity exists, LSE or MLE are unstable. 
              Robust regression techniques may be needed, such as Ridge regression, Lasso regression, Elastic-net regression, Principal component regression (PCR), Partial Least Square Regression (PLSR), etc.
-         <li> (b) Check goodness of the fit after fitting the model and made necessory corrections if needed.
-         <li> (c) Check normality assumption
-         <li> (d) Outlier detections
-         <li> (e) Check independency assumption
-         <li> (f) Check common standard deviation assumption
+         <li> Check goodness of the fit after fitting the model and made necessory corrections if needed.
+         <li> Check normality assumption
+         <li> Outlier detections
+         <li> Check independency assumption
+         <li> Check common standard deviation assumption
      </ul>
 <li>     
 
