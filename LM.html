@@ -229,76 +229,116 @@ $(function(){
 	<td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="Bayesian.html"> Bayesian Models </a> </td>
 		    </tr><table>
 <hr>
-
 <h2>Linear Models (LM)</h2>
 
-<p> Let $y_1, y_2, ..., y_n$ be the responses from $n$ subjects, each response follows independently a normal distribution:
+<p> Let $y_1, y_2, ..., y_n$ be the responses from $n$ subjects, each response follows a normal distribution independently with a common standard deviation
+ $\sigma$ and possible different means:
 \[ y_i \sim N(\mu_i, \sigma^2), i=1, 2, \cdots, n \]
-<p> A linear model is to relate the mean $\mu_i$ with some characterics of each subject, $x_{i1}, x_{i2}, \cdots, x_{ik}$, called predictors, covariates, independent variables, etc. These covariates 
- are considered to have potential effects on the mean of the response:
+<p> Different characterics of each subject, measured as $x_{i1}, x_{i2}, \cdots, x_{ik}$, may have effects on the mean. 
+A linear model is to relate the mean $\mu_i$ with these characteristics (called predictors, covariates, independent variables, etc): 
 \[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik}\]
  or 
 \[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \epsilon_i=x_i \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
 where $x_i= (1, x_{i1}, ..., x_{ik})$ is the observation of the covariates from subject $i$,
-the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_k)^T$ is the regression coefficients, and 
-$\epsilon_i$ is the random variation in y that is not explained by the covariates in the model. The random
+the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_k)^T$ is a vector of the regression coefficients, and 
+$\epsilon_i$ is the random variation in $y$ that is not explained by the covariates in the model. The random
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
-The parameters $\beta_0, \beta_1, ..., \beta_k $ are called regression coefficients.
 
-<p> Let $ \mathbf{y} = (y_1,y_2, \cdots, y_n)^T $ be the observation vector. Then the linear model can be rewritten as
+<p> Let $ \mathbf{y} = (y_1,y_2, \cdots, y_n)^T $ be the vector of observed response data. Then the linear model can be rewritten as
 \[ \mathbf{y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
-where $\mathbf{X}=(x_1^', x_2^', ..., x_n^')' $ is the observed covariate matrix. 
+where $\mathbf{X}=(x_1^T, x_2^T, ..., x_n^T)^T $ is the observed covariate matrix. 
 
-<p> The simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are all linear models.
+<p> Simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are linear models.
 
-The main purpose of fitting a linear model to the observed data can be 
+The main purpose of fitting a linear model to the observed data includes 
 <ul>
-<li> to investigate the relationship of the response variable and the covariates, and the importance of the covariates on the response 
+<li> to quantify the relationship of the response variable and the covariates, and the importance of the covariates on the response 
 <li> to predict the response for some different values of the covariates
 <li> to find an optimum response
 </ul>
 
-No matter what purpose is, the first step is to estimate the parameters $\mathbf{\beta}$ and the common standand deviation $\sigma$.
+The first step is to estimate the parameters $\mathbf{\beta}$ and the common standand deviation $\sigma$.
 
-<p>Least Square Estimation (LSE) of the parameters:
+<p>The Least Square Estimation (LSE) of the parameters is
 
-/[ \hat{\mathbf{\beta}}=\mathbf{X}' (X'X)^{-1} X' Y /]
-which is a Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). 
+\[ \hat{\mathbf{\beta}}=\mathbf{X} (X'X)^{-1} X' Y \sim N(\mathbf{\beta}, \sigma^2 \mathbf{(X^T X)}^{-1}), \]
+which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). $\sigma^2$ can be estimated using
 
+\[ s^2 = \frac{(\mathbf{Y} - \mathbf{X^t \hat{\beta}})^T(\mathbf{Y} - \mathbf{X^t \hat{\beta}})}{n-p-1},  \frac{(n-p-1)s^2}{\sigma^2} \sim \chi^2 (n-p-1),
+\mathbf{\hat{\beta}} and s^2 are independent,
+\]
 
-which is the best (minimum variance) quadratic unbiased estimator of . Note that unbiased estimators only require 
-with normal assumptions, the maximum likelihood estimtors (MLE) can be derived.  The MLE of is the same as the LSE.
+$s^2$ is the best (minimum variance) quadratic unbiased estimator of $\simga^2$. Note that unbiased estimators only require $E(\mathbf{Y})=\mathbf{X\beta}$ and
+$Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $.
+With additions assumption of normal distributions, the maximum likelihood estimtors (MLE) can be derived. The MLE of $\mathbf{\beta} is the same as the LSE, and the MLE of $\sigma^2$ is
+\[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X^t \hat{\beta}})^T(\mathbf{Y} - \mathbf{X^t \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
 
+which is a biased estimator of $\sigma^2$.
 
-which is a biased estimator.
-
-Inference can be made based on the above distributions through t-test or F-test for any contrast (linear combination of the .
-
+Once the estimates are obtained, inferences about the model, the coefficients, or any contrast (linear combinations of the coefficients)
+ can be performed using F-test or t-test.
  
 
 <p> Some notes on linear models:
 
 <ul>
- <li>       By “linear” it means “linear in parameter”. It does not mean “linear in covariate”. So polynomial regression is a special case.
+<li> A linear model has three important assumptions: normality, independency, and common standard deviation. Before making any inferences on the parameters,
+these assumptions should be checked. If the assumptions are violated, some changes are needed. For example, if the distribution is skewed, some transformation may be applied first.
+ <li>       By “linear” it means “linear in parameters”. Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept. The relation to the covariates can be nonlinear such as $x^2$ or $e^x^2$ or $\sin (x)$.
+           So polynomial regression is a special case of linear models.
 
- <li>       <em> Normal distributed </em> means the response variable is a continuous variable.
+ <li>       <em> Normal distributed </em> means the response variable is a continuous variable. Some transformation of the response variable may be needed for being normally distributed.
 
- <li>       Some transformation of the response variable may be needed for being normally distributed.
-
- <li>       Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept.
-
- <li>       Factors should be coded before performing analyses. There are different ways in the coding systems.
-            Check Coding Systems for Categorical Variables in Regression Analysis (ucla.edu).
-            Many software packages do the coding but care should be taken when interpretation of the regression parameters.
-            Different coding will result in different interpretations. 
+ <li>       Factors should be coded before fitting the model. There are different ways in the coding systems.
+            <a href="ucla.edu" > Check Coding Systems for Categorical Variables in Regression Analysis. </a>
+            Many software packages do the coding but the users must understand how the variables are coded  since it affects the 
+                interpretation of the regression parameters. Different coding will result in different interpretations. 
            In SAS, the categorical variables are declared by the CLASS statement with several options for coding.
 
- <li>     It is a good practice to perform some standardization of the covariates.
+ <li>     It is a good practice to perform some standardization of the covariates before fitting the model.
 
- <li>       Check whether there are collinearity between the covariates
+ <li>    Model diagnostics: <br>
+     <ul>
+         <li> (a) Check whether there are collinearity between the covariates. If collinearity exists, LSE or MLE are unstable. 
+             Robust regression techniques may be needed, such as Ridge regression, Lasso regression, Elastic-net regression, Principal component regression (PCR), Partial Least Square Regression (PLSR), etc.
+         <li> (b) Check goodness of the fit after fitting the model and made necessory corrections if needed.
+         <li> (c) Check normality assumption
+         <li> (d) Outlier detections
+         <li> (e) Check independency assumption
+         <li> (f) Check common standard deviation assumption
+     </ul>
+<li>     
 
 </ul>
+
+
+<p>  Multiple correlation coefficient: $R^2$ and adjusted $R^2$.
+
+
+<p> SAS procedures for Linear Models:
+
+ PROC REG, PROC ANOVA, PROC GLM, PROC MIXED, etc.
+
+ Recommend using PROC MIXED without the REPEATED and the RANDOM statement.
+
+Example:
+
+ODS output …; * get the results for further processing and report;
+
+Proc Mixed data=A;
+
+       Class trtgrp; *declare treatment group as a categorical variable;
+
+       Model Y=X1,X2, trtgrp, X1*trtgrp/S E;
+
+      LSmeans trtgrp/diff (ref=0) pdiff CI;
+
+Run;
+
+R packages for Linear Models:
+
+Python Libraries for Linear Models:
     </div>
 
     <!-- Always on top. Fixed position, fixed width, relative to content width -->
