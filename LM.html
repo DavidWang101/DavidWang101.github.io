@@ -245,7 +245,7 @@ $\epsilon_i$ is the random variation in $y$ that is not explained by the covaria
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
 
-<p> Let $ \mathbf{Y} = (y_1,y_2, \cdots, y_n)' $ be the vector of observed response data. Then the linear model can be rewritten as
+<p> Let $ \mathbf{Y} = (Y_1,Y_2, \cdots, Y_n)' $ be the vector of response variables from $n$ subjects. Then the linear model can be rewritten as
 \[ \mathbf{Y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
 where $\mathbf{X}=(x_1, x_2, ..., x_n)' $ is the observed covariate matrix. 
 
@@ -253,33 +253,33 @@ where $\mathbf{X}=(x_1, x_2, ..., x_n)' $ is the observed covariate matrix.
 
 The main purpose of fitting a linear model to the observed data includes 
 <ul>
-<li> to quantify the relationship of the response variable and the covariates, and the importance of the covariates on the response 
+<li> to quantify the relationship of the response variable and the covariates, and the importance of the covariates to the response variable 
 <li> to predict the response for some different values of the covariates
 <li> to find an optimum response
 </ul>
 
-The first step is to estimate the parameters $\mathbf{\beta}$ and the common standand deviation $\sigma$.
+To achieve these goals, the first step is to estimate the parameters $\mathbf{\beta}$ and the common standand deviation $\sigma$.
 
-<p>The Least Square Estimation (LSE) of the parameters is
+<p>The Least Square Estimation (LSE) of the parameter vector $\mathbf{\beta}$ is
 
 \[ \hat{\mathbf{\beta}}=\mathbf{ (X'X)^{-1} X' Y} \sim N(\mathbf{\beta}, \sigma^2 \mathbf{(X' X)}^{-1}), \]
-which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). $\sigma^2$ can be estimated using
+which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). Note that unbiased property only requires $E(\mathbf{Y})=\mathbf{X\beta}$ and
+$Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $. The parameter $\sigma^2$ can be estimated using
 
 \[ s^2 = \frac{(\mathbf{Y} - \mathbf{X \hat{\beta}})'(\mathbf{Y} - \mathbf{X \hat{\beta}})}{n-p-1},  \frac{(n-p-1)s^2}{\sigma^2} \sim \chi^2 (n-p-1),
-\mathbf{\hat{\beta}} and s^2 are independent,
+\mathbf{\hat{\beta}} \text{and} s^2 \text{are independent,}
 \]
 
-$s^2$ is the best (minimum variance) quadratic unbiased estimator of $\sigma^2$. Note that unbiased estimators only require $E(\mathbf{Y})=\mathbf{X\beta}$ and
-$Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $.
-With the assumption of normal distribution, the maximum likelihood estimtors (MLE) can be derived. 
+$s^2$ is the best (minimum variance) quadratic unbiased estimator of $\sigma^2$.
+With the additional assumption of normal distribution, the maximum likelihood estimtors (MLE) can be derived. 
 The MLE of $\mathbf{\beta}$ is the same as the LSE, and the MLE of $\sigma^2$ is
 \[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X \hat{\beta}})'(\mathbf{Y} - \mathbf{X \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
 
-which is a biased estimator of $\sigma^2$.
+which is a biased estimator of $\sigma^2$ but asymptotic unbiased. Hypothesis testing or confidence intervals concerning the parameters can be constructed 
+using the distribution property of the estimators.  
 
-Once the estimates are obtained, inferences about the model, the coefficients, or any contrast (linear combinations of the coefficients)
- can be performed using F-test or t-test.
- 
+Once the estimates are obtained, one should perform some model diagnostics for validating the model assumptions, idetifying any influenital observations, and testing goodness of fit
+before using the model for predictions. 
 
 <p> Some notes on linear models:
 
@@ -319,26 +319,27 @@ these assumptions should be checked. If the assumptions are violated, some trans
 <p>  Multiple correlation coefficient: $R^2$ and adjusted $R^2$.
 
 
-<p> SAS procedures for Linear Models:
+<p> SAS procedures for Linear Models: <br>
 
  PROC REG, PROC ANOVA, PROC GLM, PROC MIXED, etc.
 
- Recommend using PROC MIXED without the REPEATED and the RANDOM statement.
+ Recommend using PROC MIXED without the REPEATED and the RANDOM statements.
 
-Example:
+<p> Example:
 
-ODS output …; * get the results for further processing and report;
+	<div class="Codes">
+		ODS output …; * get the results for further processing and report; <br>
 
-Proc Mixed data=A;
+Proc Mixed data=A; <br>
 
-       Class trtgrp; *declare treatment group as a categorical variable;
+       Class trtgrp; *declare treatment group as a categorical variable; <br>
 
-       Model Y=X1,X2, trtgrp, X1*trtgrp/S E;
+       Model Y=X1,X2, trtgrp, X1*trtgrp/S E; <br>
 
-      LSmeans trtgrp/diff (ref=0) pdiff CI;
+      LSmeans trtgrp/diff (ref=0) pdiff CI; <br>
 
-Run;
-
+Run;  <br>
+		    </div>
 R packages for Linear Models:
 
 Python Libraries for Linear Models:
