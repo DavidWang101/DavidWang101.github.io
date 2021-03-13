@@ -176,7 +176,13 @@ li {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #f1f1f1; /* #3e8e41;*/}
 
-
+codes {
+  color: black;
+  padding: 2px 0px 0px 50px;
+  text-decoration: none;
+  background-color: white;
+  display: block;
+}
 
 
 
@@ -267,7 +273,7 @@ which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). Note 
 $Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $. The parameter $\sigma^2$ can be estimated using
 
 \[ s^2 = \frac{(\mathbf{Y} - \mathbf{X \hat{\beta}})'(\mathbf{Y} - \mathbf{X \hat{\beta}})}{n-p-1},  \frac{(n-p-1)s^2}{\sigma^2} \sim \chi^2 (n-p-1),
-\mathbf{\hat{\beta}} \text{and} s^2 \text{are independent,}
+\mathbf{\hat{\beta}} \text{ and } s^2 \text{ are independent,}
 \]
 
 $s^2$ is the best (minimum variance) quadratic unbiased estimator of $\sigma^2$.
@@ -340,9 +346,9 @@ Proc Mixed data=A; <br>
 
 Run;  <br>
 		    </div>
-R packages for Linear Models:
+<p>R packages for Linear Models:
 
-Python Libraries for Linear Models:
+<p>Python Libraries for Linear Models:
     </div>
 
     <!-- Always on top. Fixed position, fixed width, relative to content width -->
