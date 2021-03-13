@@ -322,14 +322,24 @@ these assumptions should be checked. If the assumptions are violated, some trans
 </ul>
 
 
-<p>  Multiple correlation coefficient: $R^2$ and adjusted $R^2$.
+<p> The Coefficient of Multiple Determination: $R^2$ and adjusted $R^2$: \\
+	The coefficient of multiple determination ($R^2$ ) measures the proportion of variation
+	in the dependent variable $y$ that can be predicted from the set of independent variables included in the linear model.
+	When the linear model fits the data well, $R^2$ will be large (close to 1). 
+	\[ R^2 = \frac{\Sigma_{i=1}^n ( \hat{y}_i - \bar{y} ) ^2 }{ \Sigma_{i=1}^2 (y_i -\bar{y})^2} \]
 
+	\[ \Sigma_{i=1}^n (y_i - \bar{y})^2 = \Sigma_{i=1}^n (\hat{y_i) - \bar{y})^2 + \Sigma_{i=1}^2 (y_i - \hat{y}_i)^2 \]
+	
+	Adding more independent variables or predictors to a linear model tends to increase the R-squared value. To avoid overfitting the model by adding 
+	noise independent variables, the adjusted $R^2$  is used too determine how reliable the correlation is
+	and how much is determined by the addition of independent variables.
+	\[ R_{adj}^2 = 1 - \frac{(1-R^2)(n-1)}{n-p-1}  \]
+<p> If more and more useless variables are added to a model, adjusted r-squared will decrease. If more useful variables are added, adjusted r-squared will increase.
+Adjusted $R^2$ will always be less than or equal to $R^2$.
 
 <p> SAS procedures for Linear Models: <br>
 
  PROC REG, PROC ANOVA, PROC GLM, PROC MIXED, etc.
-
- Recommend using PROC MIXED without the REPEATED and the RANDOM statements.
 
 <p> Example:
 
