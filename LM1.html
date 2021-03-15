@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Anthony's page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" /> </script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+ 
+    a { text-decoration: none; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+/* Style the header */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 80 px !important; 
+  background-color: DodgerBlue;
+ /* padding: 5px 0px 5px 0px; */
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  opacity: .8;
+}
+
+
+.content {
+    position:relative;
+    height: 100%;
+    width:100%; /* Sizing - any length */
+    padding:80px 0px 50px 0px; /* Header height and footer height */
+    margin:0 auto 0 auto; /* Center content */
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.sidebar1, .sidebar2 {
+    background-color: #ccc;
+    top:80px;
+    bottom:30px;
+    width: 20%;
+    position:absolute;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.sidebar1 {
+    left:0px;
+}
+
+.sidebar2 {
+    right: 0px;
+}
+
+#scrollable2 {
+    background-color: #f1f1f1;
+    height: 100%;
+    width: 80%;
+    min-width: 300px; 
+    margin-left: 20%;
+    margin-right: 0px; 
+    padding: 0px 20px 20px 20px;
+
+    overflow:auto;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box; 
+}
+
+footer {
+    width: 100%;
+    background-color: DodgerBlue;
+    position: fixed; 
+    bottom: 0px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    padding: 5px 20px 5px 20px;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 100%;
+  height: 100%;  /* only for demonstration, should be removed */
+  background-color: #ccc;
+  padding: 5px 5px 5px 10px;
+  /*position: fixed; */
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0px;
+}
+li {
+   padding: 5px 0px 2px 0px;
+}
+
+/*hoverable dropdown menu */
+.dropbtn {
+  background-color: #ccc /*#4CAF50*/;
+  color: blue;
+  padding: 2px 0px 2px 0px; /* indent space */
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 600px;
+  padding: 5px 5px 5px 5px
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 2px 0px 0px 10px;
+  text-decoration: none;
+  background-color: white;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #f1f1f1; /* #3e8e41;*/}
+
+.Codes {
+  color: black;
+  padding: 2px 0px 0px 50px;
+  text-decoration: none;
+  background-color: white;
+  display: block;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Always on top: Position Fixed-->
+<header id="myheader">
+      <h1>Statistics and Clinical Trials </h1>
+      <h2>by Anthony Y. Wang, Ph.D. </h2>
+</header>
+<script>
+$(function(){
+  $("#myheader").load("myheader.html");
+});
+</script>
+	   
+	
+	
+<!-- Fixed size after header-->
+<div class="content">
+    <!-- Always on top. Fixed position, fixed width, relative to content width-->
+    <div  class="sidebar1">
+	    <!--Navigation bar-->
+<div id="sidemenu">
+
+</div>
+<script>
+$(function(){
+  $("#sidemenu").load("sidemenu.html");
+});
+</script>
+	    
+<!--end of Navigation bar-->
+      
+    </div>
+    <!-- Scrollable div with main content -->
+    <div id="scrollable2">
+  <h2> Basic Statistical Models </h2> 
+	    <table border=0 padding=20px> <tr><td> <a href="LM.html"> Linear Models </a>  </td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="LMM.html"> Linear Mixed Models </a>  </td>
+		    <td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="GLM.html"> Generalized Linear Models </a> </td>
+		    <td></td>
+		    </tr>
+<tr><td>		    
+	<a href="GLMM.html"> Generalized Linear Mixed Models </a></td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp; <a href="SurvivalM.html"> Survival Models </a></td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp;<a href="NLMM.html"> Non-linear Mixed Model </a></td>
+	<td> &nbsp; &nbsp; &nbsp; &nbsp;<a href="Bayesian.html"> Bayesian Models </a> </td>
+		    </tr><table>
+<hr>
+<h2>Linear Models (LM)</h2>
+
+<p> Let $y_1, y_2, ..., y_n$ be the responses from $n$ subjects, each response follows a normal distribution independently with a common standard deviation
+ $\sigma$ and possible different means:
+\[ y_i \sim N(\mu_i, \sigma^2), i=1, 2, \cdots, n \]
+<p> Different characterics of each subject, measured as $x_{i1}, x_{i2}, \cdots, x_{ip}$, may have effects on the mean. 
+A linear model is to relate the mean $\mu_i$ with these characteristics (called predictors, covariates, independent variables, etc): 
+\[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_p x_{ip}\]
+ or 
+\[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i=\mathbf{x_i}' \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
+where $\mathbf{x_i}= (1, x_{i1}, ..., x_{ip})'$ is the observation vector of the covariates from subject $i$,
+the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_p)'$ is a vector of the regression coefficients, and 
+$\epsilon_i$ is the random error in $y$ that is not explained by the covariates in the model. The random
+variation may be due to other variables that affect y but are not known or
+not observed, or simply measurement errors.
+
+<p> Let $ \mathbf{Y} = (Y_1,Y_2, \cdots, Y_n)' $ be the vector of response variables from $n$ subjects. Then the linear model can be rewritten as
+\[ \mathbf{Y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
+where $\mathbf{X}=(\mathbf{x_1, x_2, ..., x_n})' $ is the observed covariate matrix. 
+
+<p> Simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are linear models.
+
+The main purpose of fitting a linear model to the observed data includes 
+<ul>
+<li> to quantify the relationship of the response variable and the covariates, and the importance of the covariates to the response variable 
+<li> to predict the response for some different values of the covariates
+<li> to find an optimum response
+</ul>
+
+To achieve these goals, the first step is to estimate the parameters $\mathbf{\beta}$ and the common standand deviation $\sigma$.
+
+<p>The Least Square Estimation (LSE) of the parameter vector $\mathbf{\beta}$ is
+
+\[ \hat{\mathbf{\beta}}=\mathbf{ (X'X)^{-1} X' Y} \sim N(\mathbf{\beta}, \sigma^2 \mathbf{(X' X)}^{-1}), \]
+which is the Best Linear Unbiased Estimator (BLUE) (Gauss-Markov Theorem). Note that unbiased property only requires $E(\mathbf{Y})=\mathbf{X\beta}$ and
+$Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $. The parameter $\sigma^2$ can be estimated using
+
+\[ s^2 = \frac{(\mathbf{Y} - \mathbf{X \hat{\beta}})'(\mathbf{Y} - \mathbf{X \hat{\beta}})}{n-p-1},  \frac{(n-p-1)s^2}{\sigma^2} \sim \chi^2 (n-p-1),
+\mathbf{\hat{\beta}} \text{ and } s^2 \text{ are independent,}
+\]
+
+$s^2$ is the best (minimum variance) quadratic unbiased estimator of $\sigma^2$.
+With the additional assumption of normal distribution, the maximum likelihood estimtors (MLE) can be obtained. 
+The MLE of $\mathbf{\beta}$ is actually the same as the LSE under the linear models, and the MLE of $\sigma^2$ is
+\[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X \hat{\beta}})'(\mathbf{Y} - \mathbf{X \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
+
+which is a biased estimator of $\sigma^2$ but asymptotic unbiased. Hypothesis testing or confidence intervals concerning the parameters can be constructed 
+using the distribution property of the estimators given above.
+
+One should perform some model diagnostics to validate the model assumptions, idetify any influenital observations, and test goodness of fit
+before making any inferences on the model parameters or using the fitted models for predictions. 
+
+<p> Some notes on linear models:
+
+<ul>
+<li> A linear model has three important assumptions: normality, independency, and common standard deviation. 
+	If the assumptions are violated, some transformation of the data may be needed or alternate models should be fitted. 
+	For example, if the distribution is skewed, some transformation may be applied first.
+ <li>       By “linear” it means “linear in parameters”. Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept.
+	 The relation to the covariates can be nonlinear such as $x^2$ or $e^{x^2}$ or $\sin (x)$.
+           So polynomial regression is a special case of linear models. But in practice, the "linear" often means linear in the coviariates and transformed covariates too.
+
+ <li>       <em> Normal distributed </em> means the response variable is a continuous variable. Some transformation of the response variable may be needed for being normally distributed.
+
+ <li>       Factors should be coded before fitting the model. There are different ways in the coding systems.
+            <a href="https://stats.idre.ucla.edu/spss/faq/coding-systems-for-categorical-variables-in-regression-analysis-2/" >
+		    Check Coding Systems for Categorical Variables in Regression Analysis. </a>
+            Many software packages do the coding but the users must understand how the variables are coded  since it affects the 
+                interpretation of the regression parameters. Different coding will result in different interpretations. 
+           In SAS, the categorical variables are declared by the CLASS statement with several options for coding.
+
+ <li>     It is a good practice to perform some standardization of the covariates before fitting the model.
+
+ <li>    Model diagnostics: <br>
+     <ul>
+         <li> Check whether there are collinearity between the covariates. If collinearity exists, LSE or MLE are unstable. 
+             Robust regression techniques may be needed, such as Ridge regression, Lasso regression, Elastic-net regression, Principal component regression (PCR), Partial Least Square Regression (PLSR), etc.
+         <li> Check goodness of the fit after fitting the model and made necessory corrections if needed.
+         <li> Check normality assumption
+         <li> Outlier detections
+         <li> Check independency assumption
+         <li> Check common standard deviation assumption
+     </ul>
+<li>     
+
+</ul>
+
+
+		    <p> <b> The Coefficient of Multiple Determination $R^2$ and adjusted $R^2$: </b> \\
+	The coefficient of multiple determination ($R^2$ ) measures the proportion of variation
+	in the dependent variable $y$ that can be predicted from the set of independent variables included in the linear model.
+	When the linear model fits the data well, $R^2$ will be large (close to 1). 
+	\[ R^2 = \frac{\Sigma_{i=1}^n ( \hat{y}_i - \bar{y} ) ^2 }{ \Sigma_{i=1}^n (y_i -\bar{y})^2} \]
+	
+	
+
+	\[ \Sigma_{i=1}^n (y_i - \bar{y})^2 = \Sigma_{i=1}^n (\hat{y_i) - \bar{y})^2 + \Sigma_{i=1}^2 (y_i - \hat{y}_i)^2 \]
+	
+	Adding more independent variables or predictors to a linear model tends to increase the R-squared value. To avoid overfitting the model by adding 
+	noise independent variables, the adjusted $R^2$  is used too determine how reliable the correlation is
+	and how much is determined by the addition of independent variables.
+	\[ R_{adj}^2 = 1 - \frac{(1-R^2)(n-1)}{n-p-1}  \]
+<p> If more and more useless variables are added to a model, adjusted r-squared will decrease. If more useful variables are added, adjusted r-squared will increase.
+Adjusted $R^2$ will always be less than or equal to $R^2$.
+
+<p> SAS procedures for Linear Models: <br>
+
+There are many SAS procedures that can fitt linear models for a specific data such as PROC REG, PROC ANOVA, PROC GLM, PROC MIXED, etc.
+
+<p> Here is one example using PROC mixed:
+
+	<div class="Codes">
+		ODS output …; * get the results for further processing and report; <br>
+
+Proc Mixed data=A; <br>
+
+       Class trtgrp; *declare treatment group as a categorical variable; <br>
+
+       Model Y=X1, X2, trtgrp, X1*trtgrp/S E; <br>
+
+      LSmeans trtgrp/diff (ref=0) pdiff CI; <br>
+
+Run;  <br>
+		    </div>
+<p>R packages for Linear Models: <br>
+    <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788627306/1/ch01lvl1sec18/r-packages-for-regression"> Click here to review some popular R packages for LM </a>
+<p>Python Libraries for Linear Models: <br>
+	
+Scikit-learn is one of the popular libary that can fit linear models and perform predicitons. The methods include least square estimation, non-negative least square estimation,
+	penalized regression such as Ridge regression, Lasso, Multi-task Lasso, Elastic-Net, Multi-task Elastic-Net, LARS Lasso, Least Angle, etc.
+	
+    </div>
+
+    <!-- Always on top. Fixed position, fixed width, relative to content width -->
+
+</div>
+<!-- Always at the end of the page -->
+<footer>
+     <p> <a href="Mailto:anthony.y.wang.math@gmail.com"> Contact me </a> </p>
+</footer>
+
+
+</body>
+</html>
