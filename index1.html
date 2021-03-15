@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Anthony's page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+  </script>
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" /> </script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<link rel="stylesheet" href="mystyle.css">
+  
+ <script> 
+  $(function () {
+  var includes = $('[data-include]')
+  $.each(includes, function () {
+    var file = 'views/' + $(this).data('include') + '.html'
+    $(this).load(file)
+  })
+})
+  </script> 
+</head>
+<body>
+
+<!-- Always on top: Position Fixed-->
+<header id="myheader">
+      <h1>Statistics and Clinical Trials </h1>
+      <h2>by Anthony Y. Wang, Ph.D. </h2>
+</header>	
+	
+<!-- Fixed size after header-->
+<div class="content">
+    <!-- Always on top. Fixed position, fixed width, relative to content width-->
+    <div  class="sidebar1">
+	    <!--Navigation bar-->
+<div data-include="sidemenu"></div>
+<!--end of Navigation bar-->      
+    </div>
+  
+    <!-- Scrollable div with main content -->
+    <div id="scrollable2">
+      
+<div data-include="LM.html">
+      
+    </div>
+
+    <!-- Always on top. Fixed position, fixed width, relative to content width -->
+
+</div>
+<!-- Always at the end of the page -->
+<footer>
+     <p> <a href="Mailto:anthony.y.wang.math@gmail.com"> Contact me </a> </p>
+</footer>
+
+
+
+</body>
+</html>
