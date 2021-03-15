@@ -24,7 +24,7 @@
   $(function () {
   var includes = $('[data-include]')
   $.each(includes, function () {
-    var file = 'views/' + $(this).data('include') + '.html'
+    var file =  $(this).data('include') + '.html'
     $(this).load(file)
   })
 })
@@ -43,7 +43,8 @@
     <!-- Always on top. Fixed position, fixed width, relative to content width-->
     <div  class="sidebar1">
 	    <!--Navigation bar-->
-<div data-include="sidemenu"></div>
+<div data-include="sidemenu"></div>   
+	    
 <!--end of Navigation bar-->      
     </div>
   
