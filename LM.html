@@ -244,16 +244,16 @@ $(function(){
 A linear model is to relate the mean $\mu_i$ with these characteristics (called predictors, covariates, independent variables, etc): 
 \[ \mu_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_p x_{ip}\]
  or 
-\[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i=x_i' \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
-where $x_i= (1, x_{i1}, ..., x_{ip})'$ is the observation vector of the covariates from subject $i$,
+\[ y_i=\beta_0 + \beta_1 x_{i1}+ \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i=\mathbf{x_i}' \beta+\epsilon_i, \epsilon_i \sim N(0, \sigma^2), i.i.d. \]
+where $\mathbf{x_i}= (1, x_{i1}, ..., x_{ip})'$ is the observation vector of the covariates from subject $i$,
 the parameter vector $\beta = (\beta_0, \beta_1, ..., \beta_p)'$ is a vector of the regression coefficients, and 
-$\epsilon_i$ is the random variation in $y$ that is not explained by the covariates in the model. The random
+$\epsilon_i$ is the random error in $y$ that is not explained by the covariates in the model. The random
 variation may be due to other variables that affect y but are not known or
 not observed, or simply measurement errors.
 
 <p> Let $ \mathbf{Y} = (Y_1,Y_2, \cdots, Y_n)' $ be the vector of response variables from $n$ subjects. Then the linear model can be rewritten as
 \[ \mathbf{Y}=\mathbf{X \beta} + \mathbf{\epsilon},  \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I_n}) \]
-where $\mathbf{X}=(x_1, x_2, ..., x_n)' $ is the observed covariate matrix. 
+where $\mathbf{X}=(\mathbf{x_1, x_2, ..., x_n})' $ is the observed covariate matrix. 
 
 <p> Simple regression, multiple regression, polynomial regression, ANOVA models, ANCOVA models are linear models.
 
@@ -277,24 +277,25 @@ $Cov(\mathbf{Y})= \sigma^2 \mathbf{I_n} $. The parameter $\sigma^2$ can be estim
 \]
 
 $s^2$ is the best (minimum variance) quadratic unbiased estimator of $\sigma^2$.
-With the additional assumption of normal distribution, the maximum likelihood estimtors (MLE) can be derived. 
-The MLE of $\mathbf{\beta}$ is the same as the LSE, and the MLE of $\sigma^2$ is
+With the additional assumption of normal distribution, the maximum likelihood estimtors (MLE) can be obtained. 
+The MLE of $\mathbf{\beta}$ is actually the same as the LSE under the linear models, and the MLE of $\sigma^2$ is
 \[ \hat{\sigma}^2 =\frac{1}{n} (\mathbf{Y} - \mathbf{X \hat{\beta}})'(\mathbf{Y} - \mathbf{X \hat{\beta}}), \frac{n s^2}{\sigma^2} \sim \chi^2 (n-p-1), \]
 
 which is a biased estimator of $\sigma^2$ but asymptotic unbiased. Hypothesis testing or confidence intervals concerning the parameters can be constructed 
-using the distribution property of the estimators.  
+using the distribution property of the estimators given above.
 
-Once the estimates are obtained, one should perform some model diagnostics for validating the model assumptions, idetifying any influenital observations, and testing goodness of fit
-before using the model for predictions. 
+One should perform some model diagnostics to validate the model assumptions, idetify any influenital observations, and test goodness of fit
+before making any inferences on the model parameters or using the fitted models for predictions. 
 
 <p> Some notes on linear models:
 
 <ul>
-<li> A linear model has three important assumptions: normality, independency, and common standard deviation. Before making any inferences on the parameters,
-these assumptions should be checked. If the assumptions are violated, some transformation of the data may be needed or alternate models should be fitted. For example, if the distribution is skewed, some transformation may be applied first.
+<li> A linear model has three important assumptions: normality, independency, and common standard deviation. 
+	If the assumptions are violated, some transformation of the data may be needed or alternate models should be fitted. 
+	For example, if the distribution is skewed, some transformation may be applied first.
  <li>       By “linear” it means “linear in parameters”. Covariates can be continuous variables, factors with several levels (such as treatment groups), or even a constant 1 for the intercept.
 	 The relation to the covariates can be nonlinear such as $x^2$ or $e^{x^2}$ or $\sin (x)$.
-           So polynomial regression is a special case of linear models.
+           So polynomial regression is a special case of linear models. But in practice, the "linear" often means linear in the coviariates and transformed covariates too.
 
  <li>       <em> Normal distributed </em> means the response variable is a continuous variable. Some transformation of the response variable may be needed for being normally distributed.
 
@@ -341,9 +342,9 @@ Adjusted $R^2$ will always be less than or equal to $R^2$.
 
 <p> SAS procedures for Linear Models: <br>
 
- PROC REG, PROC ANOVA, PROC GLM, PROC MIXED, etc.
+There are many SAS procedures that can fitt linear models for a specific data such as PROC REG, PROC ANOVA, PROC GLM, PROC MIXED, etc.
 
-<p> Example:
+<p> Here is one example using PROC mixed:
 
 	<div class="Codes">
 		ODS output …; * get the results for further processing and report; <br>
@@ -352,15 +353,19 @@ Proc Mixed data=A; <br>
 
        Class trtgrp; *declare treatment group as a categorical variable; <br>
 
-       Model Y=X1,X2, trtgrp, X1*trtgrp/S E; <br>
+       Model Y=X1, X2, trtgrp, X1*trtgrp/S E; <br>
 
       LSmeans trtgrp/diff (ref=0) pdiff CI; <br>
 
 Run;  <br>
 		    </div>
-<p>R packages for Linear Models:
+<p>R packages for Linear Models: <br>
     <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788627306/1/ch01lvl1sec18/r-packages-for-regression"> Click here to review some popular R packages for LM </a>
-<p>Python Libraries for Linear Models:
+<p>Python Libraries for Linear Models: <br>
+	
+Scikit-learn is one of the popular libary that can fit linear models and perform predicitons. The methods include least square estimation, non-negative least square estimation,
+	penalized regression such as Ridge regression, Lasso, Multi-task Lasso, Elastic-Net, Multi-task Elastic-Net, LARS Lasso, Least Angle, etc.
+	
     </div>
 
     <!-- Always on top. Fixed position, fixed width, relative to content width -->
